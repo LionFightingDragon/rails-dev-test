@@ -1,0 +1,5 @@
+<h2>All Products</h2>
+<% @products.each do |product| %>
+  <p>Name: <%= product.name %>; unit price of <%= number_to_currency(product.price) %></p>
+  <p><%= button_to "Add to cart", line_items_path(:product_id => product.id) %></p>
+<% end%>

@@ -1,0 +1,8 @@
+<h2>Your Order</h2>
+<ul>
+  <% @order.line_items.each do |line_item| %>
+    <li>Item: <%= line_item.product.name %>/ Price: <%= number_to_currency(line_item.product.price) %>/ Quantity: <%= line_item.quantity %>/ Products price: <%= number_to_currency(line_item.total_price) %>
+  <% end %>
+    <h2> Your order total price: <%= number_to_currency(@order.total_price) %> </h2>
+</ul>
+<%= link_to "Continue shopping", products_path %><br>

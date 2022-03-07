@@ -14,7 +14,10 @@ This repository holds a pretty basic Rails 5 app. A candidate applying to goodyl
 
 1. `bundle install`
 2. `rake db:create`
-3. `rails s`
+3.  'rake db:migrate'
+4. 'rake db:seed'
+5.  'rspec'
+6. `rails s`
 
 # The goal
 
@@ -43,3 +46,32 @@ The goal of the exercise is to create a checkout system that meets the requireme
 
 
 ----------
+
+Visit http://localhost:3000/admin and log in as the default user:
+
+Active Admin credentials:
+User: admin@example.com
+Password: password
+
+Brief summary:
+ruby 2.7.4p191
+Rails 5.2.4.6
+Active Admin is used, but the default customer, few products, and a default user for active_admin is created through rake db:seed
+Basic functionality is tested using 'rspec', only unit tests
+Rubocop lynter was used to parse the code styling
+Always the default customer(crated through db:seed) is used for orders/carts, and the customer provides data like address, email, credit_card for the purpose order placement
+For simplicity the default Customer is always the first (with the lowest id), that was added to the DB earliest, so adding new Customer will not work
+Line_item is an abstraction for a product that was added to a Cart/Order
+'reduce one' and 'add one' increase line_item quantity by 1 inside the Cart
+'reduce one' cannot remove the last line_item - to do that use 'remove item' link/button
+'Empty cart' deletes the Card from both: session and DB. If there is no cart a new one is created automatically.
+ActiveAdmin integration is implemented to add products
+
+1. `bundle install`
+2. `rake db:create`
+3.  'rake db:migrate'
+4. 'rake db:seed'
+5.  'rspec'
+6. `rails s`
+7. open: http://localhost:3000
+8. to add products open: http://localhost:3000/admin/products

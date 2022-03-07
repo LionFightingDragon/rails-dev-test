@@ -1,0 +1,21 @@
+<%= form_for(@order) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= @order.customer.name %>
+  </p><br>
+  <p>
+    <%= f.label :email %><br>
+    <%= @order.customer.email %>
+  </p><br>
+  <p>
+    <%= f.label :credit_card %><br>
+    <%= @order.customer.credit_card %>
+  </p><br>
+  <p>
+    <%= f.label :address %><br>
+    <%= @order.customer.address %>
+  </p><br>
+  <p>
+    <%= f.submit 'Place order' %>
+  </p>
+<% end %>
